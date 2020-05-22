@@ -1,0 +1,69 @@
+class Player {
+
+string name;   
+
+char map[H][W];  //一个H*W大小的地图
+
+Block* ptr;      //一个指向方块类的指针
+
+char s, x, z, y;//////操作方式（不同玩家有不同操作方式） 
+
+/////判断能不能向下/////
+
+bool checkDown();
+
+///////判断能不能向左//////
+
+bool checkLeft();
+
+/////判断能不能向右/////
+
+bool checkRight();
+
+/////判断能不能变形/////
+
+bool checkTransform();
+
+/////左移//////
+
+void moveLeft();
+
+/////右移//////
+
+void moveRight();
+
+/////下移/////
+
+void moveDown();
+
+/////方块到底后将方块贴入地图//////
+
+void blockIn();
+
+public:
+
+/////初始化地图+指针指方块类+初始化方块所在位置//////
+
+Player(string n , Block* a,char b,char c,char d,char e);
+
+/////接受键盘操作（内部调用各种函数）/////
+
+void getMessage(char m);
+
+/////判断有无消行并消行（返回所消行数）/////
+
+int CheckAndReplace(); 
+
+/////底下随机增加一行（未测试）////
+
+void Add();
+
+////判断是否输了////
+
+bool checkLose();
+
+/////打印地图，以及当前方块所在位置////
+
+void Print();
+
+};
