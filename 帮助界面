@@ -1,0 +1,40 @@
+#include<iostream>
+#include <stdio.h> 
+#include <windows.h>
+using namespace std;
+void gotoxy(int x, int y)
+{
+	COORD coord = { x, y };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+int main() {
+	int i;
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	system("cls");//??
+	system("color 03");
+
+	for (i = 21; i >= 1; i--) {
+		gotoxy(1, i); cout << "■";
+	}
+	for (i = 2; i < 17; i++) {
+		gotoxy(i, 1); cout << "■";
+	}
+	for (i = 2; i < 21; i++) {
+		gotoxy(31, i); cout << "■";
+	}
+	for (i = 2; i < 17; i++) {            //?????
+		gotoxy(i, 21); cout << "■";
+	}
+	gotoxy(3,2);
+	cout<<"欢迎来到帮助";
+	char p[12][100] = { "游戏包括单人模式和双人模式","单人模式中只有玩家一",
+	"双人模式增加玩家二","方块自动下落。"," ","玩家一以wasd操控方块","玩家二以方向键操控方块" ,
+	"当一个玩家消去一行时","另一个玩家底部随机生成一行"," ","当任一玩家方块高度超出边界时","游戏结束，分出胜负"};
+	
+	for(i=0;i<10;i++){
+		gotoxy(3,i+4);
+		cout<<p[i];
+	}
+	gotoxy(25,25);
+}
